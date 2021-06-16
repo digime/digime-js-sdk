@@ -1,29 +1,111 @@
 {
-  "compilerOptions": {
-      "target": "es2017",
-      "moduleResolution": "node",
-      "module": "commonjs",
-      "declaration": true,
-      "inlineSourceMap": true,
-      "esModuleInterop": true,
-      "strict": true,
-      "resolveJsonModule": true,
+    "compilerOptions": {
+        "target": "es2017",
+        "moduleResolution": "node",
+        "module": "commonjs",
+        "declaration": true,
+        "inlineSourceMap": true,
+        "esModuleInterop": true,
+        "strict": true,
+        "resolveJsonModule": true,
 
-      /* Additional Checks */
-      "noUnusedLocals": true,
-      "noUnusedParameters": true,
-      "noImplicitReturns": true,
-      "noFallthroughCasesInSwitch": true,
+        /* Additional Checks */
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "noImplicitReturns": true,
+        "noFallthroughCasesInSwitch": true,
 
-      /* Debugging Options */
-      "traceResolution": false,
-      "listEmittedFiles": false,
-      "listFiles": false,
-      "pretty": true,
+        /* Debugging Options */
+        "traceResolution": false,
+        "listEmittedFiles": false,
+        "listFiles": false,
+        "pretty": true,
 
-      "lib": ["es2017"]
-  },
-  "include": ["src/**/*", "utils/**/*", "tools/**/*"],
-  "exclude": ["dist/**", "node_modules/**"],
-  "compileOnSave": false
+        "lib": ["es2017"]
+    },
+    "include": ["src/**/*", "utils/**/*", "tools/**/*"],
+    "exclude": ["dist/**", "node_modules/**", "**/*.spec.ts"],
+    "compileOnSave": false,
+    "typedocOptions": {
+        "entryPoints": ["src/sdk.ts", "src/errors.ts", "src/types.ts"],
+        "categorizeByGroup": false,
+        "out": "docs",
+        "exclude": "**/*+(index|.spec|.e2e).ts",
+        "theme": "pages-plugin",
+        "pages": {
+            "groups": [
+                {
+                    "title": "Guides",
+                    "pages": [
+                        {
+                            "title": "Getting Started",
+                            "source": "./guides/start.md"
+                        },
+                        {
+                            "title": "Reading Data - Step by step",
+                            "source": "./guides/read-data-overview.md"
+                        },
+                        {
+                            "title": "Writing Data - Step by step",
+                            "source": "./guides/write-data-overview.md"
+                        }
+                    ],
+                    "output": "guides"
+                },
+                {
+                    "title": "Fundamentals",
+                    "pages": [
+                        {
+                            "title": "Contracts",
+                            "source": "./guides/contracts.md"
+                        },
+                        {
+                            "title": "Initializing SDK",
+                            "source": "./guides/initialise-sdk.md"
+                        },
+                        {
+                            "title": "Getting Available Services",
+                            "source": "./guides/available-services.md"
+                        },
+                        {
+                            "title": "Authorizing",
+                            "source": "./guides/authorize.md"
+                        },
+                        {
+                            "title": "Onboarding Additional Services",
+                            "source": "./guides/onboard.md"
+                        },
+                        {
+                            "title": "Reading Data",
+                            "source": "./guides/read.md",
+                            "children": [
+                                {
+                                    "title": "File Metadata",
+                                    "source": "./guides/file-meta.md"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "Writing Data",
+                            "source": "./guides/write.md"
+                        },
+                        {
+                            "title": "User Access Tokens",
+                            "source": "./guides/access-token.md"
+                        },
+                        {
+                            "title": "Handling Errors",
+                            "source": "./guides/handling-errors.md"
+                        },
+                        {
+                            "title": "Example Applications",
+                            "source": "./guides/example-applications.md"
+                        }
+                    ],
+                    "output": "fundamentals"
+                }
+            ],
+            "reflectionNavigationTitle": "SDK API"
+        }
+    },
 }

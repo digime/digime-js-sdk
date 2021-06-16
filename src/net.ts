@@ -9,7 +9,7 @@ import memoize from "lodash.memoize";
 import path from "path";
 import pkgDir from "pkg-dir";
 import { PeerCertificate } from "tls";
-import { DigiMeSDKError, ServerIdentityError, ServerError, SDKInvalidError, SDKVersionInvalidError } from "./errors";
+import { DigiMeSDKError, ServerIdentityError, ServerError, SDKInvalidError } from "./errors";
 import { isApiErrorResponse } from "./types/api/api-error-response";
 import isString from "lodash.isstring";
 
@@ -116,12 +116,8 @@ export const handleServerResponse = (error: Error): void => {
 
     const { code, message } = body.error;
 
-    if (code === "SDKInvalid") {
-        throw new SDKInvalidError(message);
-    }
-
-    if (code === "SDKVersionInvalid") {
-        throw new SDKVersionInvalidError(message);
+    if (code === "SDKInvalid" || code === "SDKVersionInvalid") {
+        throw new SDKInvalidError(message, body.error);
     }
 
     throw new ServerError(message, body.error);

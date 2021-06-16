@@ -1,0 +1,224 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>@digime/digime-js-sdk</title>
+	<meta name="description" content="Documentation for @digime/digime-js-sdk">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="assets/css/main.css">
+	<link rel="stylesheet" href="assets/css/pages.css">
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="assets/js/search.json" data-base=".">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="index.html" class="title">@digime/digime-js-sdk</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+							<input type="checkbox" id="tsd-filter-only-exported" />
+							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="modules.html">Globals</a>
+				</li>
+			</ul>
+			<h1>@digime/digime-js-sdk</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<div class="tsd-panel tsd-typography">
+				<p><img src="https://securedownloads.digi.me/partners/digime/SDKReadmeBanner.png" alt=""></p>
+				<p align="center">
+					<a href="https://developers.digi.me/slack/join">
+						<img src="https://img.shields.io/badge/chat-slack-blueviolet.svg" alt="Developer Chat">
+					</a>
+					<a href="LICENSE">
+						<img src="https://img.shields.io/badge/license-apache 2.0-blue.svg" alt="Apache 2.0 License">
+					</a>
+					<a href="#">
+						<img src="https://img.shields.io/badge/build-passing-brightgreen.svg">
+					</a>
+					<a href="https://www.typescriptlang.org/">
+						<img src="https://img.shields.io/badge/language-typescript-ff69b4.svg" alt="Typescript">
+					</a>
+					<a href="https://developers.digi.me/">
+						<img src="https://img.shields.io/badge/web-digi.me-red.svg" alt="Web">
+					</a>
+				</p>
+				<br>
+				<a href="#introduction" id="introduction" style="color: inherit; text-decoration: none;">
+					<h2>Introduction</h2>
+				</a>
+				<p>The digi.me private sharing platform empowers developers to make use of user data from thousands of sources in a way that fully respects a user&#39;s privacy, and whilst conforming to GDPR. Our consent driven solution allows you to define exactly what terms you want data by, and the user to see these completely transparently, allowing them to make an informed choice as to whether to grant consent or not.</p>
+				<p>This SDK is a server side Node library that allows seamless authentication with the digi.me private sharing service written for JavaScript/TypeScript.</p>
+				<a href="#requirements" id="requirements" style="color: inherit; text-decoration: none;">
+					<h2>Requirements</h2>
+				</a>
+				<a href="#development" id="development" style="color: inherit; text-decoration: none;">
+					<h3>Development</h3>
+				</a>
+				<ul>
+					<li>Node 12.0 or above</li>
+					<li>(Optional, if using TypeScript) TypeScript 3.8 or above</li>
+				</ul>
+				<a href="#installation" id="installation" style="color: inherit; text-decoration: none;">
+					<h2>Installation</h2>
+				</a>
+				<p>Using npm:</p>
+				<pre><code class="language-shell"><span style="color: #000000">$ npm i @digime/digime-js-sdk</span>
+</code></pre>
+				<a href="#example-application" id="example-application" style="color: inherit; text-decoration: none;">
+					<h2>Example Application</h2>
+				</a>
+				<p>You can check out an <a href="https://github.com/digime/digime-js-sdk-example">example application</a> which uses the digi.me SDK.</p>
+				<a href="#getting-started" id="getting-started" style="color: inherit; text-decoration: none;">
+					<h2>Getting Started</h2>
+				</a>
+				<p>Please check out the <a href="https://digime.github.io/digime-sdk-js/pages/guides/start.html">getting started guide</a> to start using digi.me.</p>
+				<a href="#contributions" id="contributions" style="color: inherit; text-decoration: none;">
+					<h2>Contributions</h2>
+				</a>
+				<p>digi.me prides itself in offering our SDKs completely open source, under the <a href="LICENSE">Apache 2.0 Licence</a>; we welcome contributions from all developers.</p>
+				<p>We ask that when contributing, you ensure your changes meet our <a href="CONTRIBUTING.md">contribution guidelines</a> before submitting a pull request.</p>
+				<a href="#further-reading" id="further-reading" style="color: inherit; text-decoration: none;">
+					<h2>Further Reading</h2>
+				</a>
+				<p>The topics discussed under Quick Start are just a small part of the power digi.me Private Sharing gives to data consumers such as yourself. We highly encourage you to explore the <a href="https://digime.github.io/digime-sdk-js/classes/sdk.digimesdk.html">full API documentation</a> for more in-depth examples and guides, as well as troubleshooting advice and showcases of the capabilities on offer.</p>
+				<p>Additionally, there are a number of <a href="https://github.com/digime/digime-js-sdk-example">example apps</a> built on digi.me. Feel free to have a look at those to get an insight into the power of Private Sharing.</p>
+			</div>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="label pp-nav pp-group">
+						<span>Guides</span>
+					</li>
+					<li class=" pp-nav pp-page">
+						<a href="pages/guides/start.html">Getting <wbr>Started</a>
+					</li>
+					<li class=" pp-nav pp-page">
+						<a href="pages/guides/read-data-overview.html">Reading <wbr>Data -<wbr> <wbr>Step by step</a>
+					</li>
+					<li class=" pp-nav pp-page">
+						<a href="pages/guides/write-data-overview.html">Writing <wbr>Data -<wbr> <wbr>Step by step</a>
+					</li>
+					<li class="label pp-nav pp-group">
+						<span>Fundamentals</span>
+					</li>
+					<li class=" pp-nav pp-page">
+						<a href="pages/fundamentals/contracts.html">Contracts</a>
+					</li>
+					<li class=" pp-nav pp-page">
+						<a href="pages/fundamentals/initialise-sdk.html">Initializing SDK</a>
+					</li>
+					<li class=" pp-nav pp-page">
+						<a href="pages/fundamentals/available-services.html">Getting <wbr>Available <wbr>Services</a>
+					</li>
+					<li class=" pp-nav pp-page">
+						<a href="pages/fundamentals/authorize.html">Authorizing</a>
+					</li>
+					<li class=" pp-nav pp-page">
+						<a href="pages/fundamentals/onboard.html">Onboarding <wbr>Additional <wbr>Services</a>
+					</li>
+					<li class=" pp-nav pp-page pp-parent">
+						<a href="pages/fundamentals/read.html">Reading <wbr>Data</a>
+					</li>
+					<li class=" pp-nav pp-page">
+						<a href="pages/fundamentals/write.html">Writing <wbr>Data</a>
+					</li>
+					<li class=" pp-nav pp-page">
+						<a href="pages/fundamentals/access-token.html">User <wbr>Access <wbr>Tokens</a>
+					</li>
+					<li class=" pp-nav pp-page">
+						<a href="pages/fundamentals/handling-errors.html">Handling <wbr>Errors</a>
+					</li>
+					<li class=" pp-nav pp-page">
+						<a href="pages/fundamentals/example-applications.html">Example <wbr>Applications</a>
+					</li>
+					<li class="label pp-nav pp-group">
+						<span>SDK API</span>
+					</li>
+					<li class=" ">
+						<a href="modules.html">Modules</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/errors.html">Errors</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/sdk.html">SDK</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/types.html">Types</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="assets/js/main.js"></script>
+<script>if (location.protocol == 'file:') document.write('<script src="assets/js/search.json"><' + '/script>');</script>
+</body>
+</html>

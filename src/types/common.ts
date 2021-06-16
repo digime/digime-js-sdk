@@ -6,13 +6,32 @@ import * as t from "io-ts";
 import { isNonEmptyString } from "../utils/basic-utils";
 
 export interface ContractDetails {
+    /**
+     * The ID of the contract to use
+     */
     contractId: string;
+
+    /**
+     * A string of the private key in PKCS1 format
+     */
     privateKey: string;
+
+    /**
+     * An accepted uri to redirect to after authorization
+     * The url must be whitelisted on the contract
+     */
     redirectUri: string;
 }
 
 export interface CAScope {
+    /**
+     * Control the scope using time ranges
+     */
     timeRanges?: TimeRange[];
+
+    /**
+     * Control the scope using service groups
+     */
     serviceGroups?: ServiceGroup[];
 }
 

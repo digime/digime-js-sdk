@@ -3,11 +3,7 @@
  */
 
 import { net } from "./net";
-import {
-    assertIsDiscoveryApiServicesData,
-    DiscoveryServiceCountry,
-    DiscoveryServiceGroup,
-} from "./types/api/get-discovery-api-services";
+import { assertIsDiscoveryApiServicesData, DiscoveryServiceCountry } from "./types/api/get-discovery-api-services";
 import { SDKConfiguration } from "./types/sdk-configuration";
 import { TypeValidationError } from "./errors";
 import { isNonEmptyString } from "./utils/basic-utils";
@@ -23,6 +19,11 @@ export interface DiscoveryService {
     id: number;
     name: string;
     serviceGroups: Array<{ id: number }>;
+}
+
+interface DiscoveryServiceGroup {
+    id: number;
+    name: string;
 }
 
 const getAvailableServices = async (
@@ -41,10 +42,9 @@ const getAvailableServices = async (
 
     assertIsDiscoveryApiServicesData(response);
 
-    const { services } = response.data;
     return {
         ...response.data,
-        services: services.map((service) => formatService(service)),
+        services: response.data.services.map((service) => formatService(service)),
     };
 };
 

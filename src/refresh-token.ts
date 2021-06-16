@@ -4,10 +4,8 @@
 
 import { sign } from "jsonwebtoken";
 import { getRandomAlphaNumeric } from "./crypto";
-import { TokenRefreshError } from "./errors";
-import { net } from "./net";
+import { handleServerResponse, net } from "./net";
 import get from "lodash.get";
-import { HTTPError } from "got/dist/source";
 import { UserAccessToken } from "./types/user-access-token";
 import { getPayloadFromToken } from "./utils/get-payload-from-token";
 import { SDKConfiguration } from "./types/sdk-configuration";
@@ -60,23 +58,7 @@ const refreshToken = async (options: RefreshTokenOptions, sdkConfig: SDKConfigur
             },
         };
     } catch (error) {
-        if (!(error instanceof HTTPError)) {
-            throw error;
-        }
-
-        const errorCode = get(error, "response.body.error.code");
-
-        if (
-            errorCode === "InvalidJWT" ||
-            errorCode === "InvalidRequest" ||
-            errorCode === "InvalidRedirectUri" ||
-            errorCode === "InvalidGrant" ||
-            errorCode === "InvalidToken" ||
-            errorCode === "InvalidTokenType"
-        ) {
-            throw new TokenRefreshError(get(error, "response.body.error.message"), get(error, "response.body.error"));
-        }
-
+        handleServerResponse(error);
         throw error;
     }
 };

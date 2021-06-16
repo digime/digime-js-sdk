@@ -33,7 +33,7 @@ export const WriteOptionsCodec: t.Type<WriteOptions> = t.type({
     data: PushedFileMetaCodec,
 });
 
-interface FileMeta {
+export interface FileMeta {
     fileData: Buffer;
     fileName: string;
     fileDescriptor: {

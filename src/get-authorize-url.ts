@@ -35,7 +35,7 @@ export interface GetAuthorizeUrlOptions {
     serviceId?: number;
 
     /**
-     * To renew an existing access token.
+     * User access token you may already have for this user from this or from another contract.
      */
     userAccessToken?: UserAccessToken;
 
@@ -63,11 +63,26 @@ export const GetAuthorizeUrlOptionsCodec: t.Type<GetAuthorizeUrlOptions> = t.int
 ]);
 
 export interface GetAuthorizeUrlResponse {
+    /**
+     * The URL to redirect users to to trigger the authorization process.
+     */
     url: string;
+
+    /**
+     * A string that will be required when exchanging for an user access token
+     */
     codeVerifier: string;
+
+    /**
+     * A session that can be used to read data. Can only be used after a successful authorization
+     */
     session: Session;
 }
 
+/**
+ * getAuthorizeUrl()
+ * A function to call to kick start the authorization process.
+ */
 const getAuthorizeUrl = async (
     props: GetAuthorizeUrlOptions,
     sdkConfig: SDKConfiguration

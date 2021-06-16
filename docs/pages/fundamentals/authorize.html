@@ -1,0 +1,327 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Authorizing | @digime/digime-js-sdk</title>
+	<meta name="description" content="Documentation for @digime/digime-js-sdk">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="../../assets/css/main.css">
+	<link rel="stylesheet" href="../../assets/css/pages.css">
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="../../assets/js/search.json" data-base="../..">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="../../index.html" class="title">@digime/digime-js-sdk</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+							<input type="checkbox" id="tsd-filter-only-exported" />
+							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="../../modules.html">Globals</a>
+				</li>
+				<li>
+					<a href="contracts.html">Fundamentals</a>
+				</li>
+				<li>
+					<a href="authorize.html">Authorizing</a>
+				</li>
+			</ul>
+			<h1>Authorizing</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<div class="tsd-panel tsd-typography">
+				<p><img src="https://securedownloads.digi.me/partners/digime/SDKReadmeBanner.png" alt=""></p>
+				<p align="center">
+					<a href="https://developers.digi.me/slack/join">
+						<img src="https://img.shields.io/badge/chat-slack-blueviolet.svg" alt="Developer Chat">
+					</a>
+					<a href="LICENSE">
+						<img src="https://img.shields.io/badge/license-apache 2.0-blue.svg" alt="Apache 2.0 License">
+					</a>
+					<a href="#">
+						<img src="https://img.shields.io/badge/build-passing-brightgreen.svg">
+					</a>
+					<a href="https://www.typescriptlang.org/">
+						<img src="https://img.shields.io/badge/language-typescript-ff69b4.svg" alt="Typescript">
+					</a>
+					<a href="https://developers.digi.me/">
+						<img src="https://img.shields.io/badge/web-digi.me-red.svg" alt="Web">
+					</a>
+				</p>
+				<br>
+				<a href="#authorizing" id="authorizing" style="color: inherit; text-decoration: none;">
+					<h1>Authorizing</h1>
+				</a>
+				<p>In order to write or read data from digi.me, we first need to create an user access token for each user.
+					User access tokens are linked to a contract, and it is possible to create multiple tokens that has access to the same digi.me libary.
+				Authorization is the process to obtain an user access token for the user.</p>
+				<a href="#when-do-we-need-to-authorize" id="when-do-we-need-to-authorize" style="color: inherit; text-decoration: none;">
+					<h3>When do we need to authorize?</h3>
+				</a>
+				<p>Authorization is needed:</p>
+				<ul>
+					<li>For new users. You have the option to also ask the user to onboard a service during this process.</li>
+					<li>For an existing user working with a different contract. eg, They have shared data but now we would like to write data in their digi.me.</li>
+					<li>For an existing user when their user access token has expired and we need to renew it.</li>
+				</ul>
+				<a href="#what-are-the-steps" id="what-are-the-steps" style="color: inherit; text-decoration: none;">
+					<h3>What are the steps?</h3>
+				</a>
+				<ul>
+					<li>Getting a authorization URL and a code verifier.</li>
+					<li>Redirecting the user to this authorization URL.</li>
+					<li>Exchanging the result for an user access token.</li>
+				</ul>
+				<a href="#getting-a-authorization-url-and-a-code-verifier" id="getting-a-authorization-url-and-a-code-verifier" style="color: inherit; text-decoration: none;">
+					<h2>Getting a authorization URL and a code verifier</h2>
+				</a>
+				<pre><code class="language-typescript"><span style="color: #AF00DB">import</span><span style="color: #000000"> {</span><span style="color: #001080">init</span><span style="color: #000000">} </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;@digime/digime-js-sdk&quot;</span><span style="color: #000000">;</span>
+
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">sdk</span><span style="color: #000000"> = </span><span style="color: #795E26">init</span><span style="color: #000000">({ </span><span style="color: #001080">applicationId:</span><span style="color: #000000"> &lt;</span><span style="color: #267F99">you</span><span style="color: #000000">-</span><span style="color: #267F99">application</span><span style="color: #000000">-</span><span style="color: #267F99">id</span><span style="color: #000000">&gt; });</span>
+
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">contractDetails</span><span style="color: #000000"> = {</span>
+<span style="color: #000000">    </span><span style="color: #001080">contractId:</span><span style="color: #000000"> &lt;</span><span style="color: #267F99">your</span><span style="color: #000000">-</span><span style="color: #267F99">contract</span><span style="color: #000000">-</span><span style="color: #267F99">id</span><span style="color: #000000">&gt;,</span>
+<span style="color: #000000">    </span><span style="color: #001080">privateKey:</span><span style="color: #000000"> &lt;</span><span style="color: #267F99">private</span><span style="color: #000000">-</span><span style="color: #267F99">key</span><span style="color: #000000">-</span><span style="color: #267F99">for</span><span style="color: #000000">-</span><span style="color: #267F99">contract</span><span style="color: #000000">-</span><span style="color: #267F99">id</span><span style="color: #000000">&gt;,</span>
+<span style="color: #000000">    </span><span style="color: #001080">redirectUri:</span><span style="color: #000000"> &lt;</span><span style="color: #267F99">an</span><span style="color: #000000">-</span><span style="color: #267F99">url</span><span style="color: #000000">-</span><span style="color: #267F99">to</span><span style="color: #000000">-</span><span style="color: #267F99">call</span><span style="color: #000000">-</span><span style="color: #267F99">when</span><span style="color: #000000">-</span><span style="color: #267F99">authorization</span><span style="color: #000000">-</span><span style="color: #267F99">is</span><span style="color: #000000">-</span><span style="color: #267F99">complete</span><span style="color: #000000">&gt;,</span>
+<span style="color: #000000">}</span>
+
+<span style="color: #008000">// callback - A URL to call if there are any errors during authorization. If successful, the callback used will be the redirectUrl in contractDetails above.</span>
+<span style="color: #008000">// serviceId - (Optional) During authorization, we can also ask user to onboard a service. ID can be found from getAvailableServices()</span>
+<span style="color: #008000">// state - (Optional) Put anything here to identify the user when authorization completes. This will be passed back in the callback.</span>
+<span style="color: #008000">// userAccessToken - (Optional) User access token you may already have for this user from another contract.</span>
+
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">result</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">sdk</span><span style="color: #000000">.</span><span style="color: #795E26">getAuthorizeUrl</span><span style="color: #000000">({</span>
+<span style="color: #000000">    </span><span style="color: #001080">contractDetails</span><span style="color: #000000">,</span>
+<span style="color: #000000">    </span><span style="color: #001080">callback:</span><span style="color: #000000"> &lt;</span><span style="color: #267F99">an</span><span style="color: #000000">-</span><span style="color: #267F99">url</span><span style="color: #000000">-</span><span style="color: #267F99">to</span><span style="color: #000000">-</span><span style="color: #267F99">call</span><span style="color: #000000">-</span><span style="color: #267F99">when</span><span style="color: #000000">-</span><span style="color: #267F99">an</span><span style="color: #000000">-</span><span style="color: #267F99">error</span><span style="color: #000000">-</span><span style="color: #267F99">is</span><span style="color: #000000">-</span><span style="color: #267F99">encountered</span><span style="color: #000000">&gt;,</span>
+<span style="color: #000000">    </span><span style="color: #001080">state:</span><span style="color: #000000"> &lt;</span><span style="color: #267F99">any</span><span style="color: #000000">-</span><span style="color: #267F99">extra</span><span style="color: #000000">-</span><span style="color: #267F99">info</span><span style="color: #000000">-</span><span style="color: #267F99">to</span><span style="color: #000000">-</span><span style="color: #267F99">identify</span><span style="color: #000000">-</span><span style="color: #267F99">user</span><span style="color: #000000">&gt;</span>
+<span style="color: #000000">    </span><span style="color: #001080">serviceId</span><span style="color: #000000">: </span><span style="color: #795E26">toNumber</span><span style="color: #000000">(</span><span style="color: #001080">serviceId</span><span style="color: #000000">),</span>
+<span style="color: #000000">    </span><span style="color: #001080">userAccessToken:</span><span style="color: #000000"> &lt;</span><span style="color: #267F99">access</span><span style="color: #000000">-</span><span style="color: #267F99">token</span><span style="color: #000000">&gt;,</span>
+<span style="color: #000000">});</span>
+
+<span style="color: #008000">// =&gt; result will contain a url and a code verifier which you will need for later.</span>
+<span style="color: #008000">// Calling the url returned will trigger the authorization process.</span>
+</code></pre>
+				<p>The <a href="../../interfaces/types.getauthorizeurlresponse.html">result</a> returned will include a <code>url</code> and <code>codeVerifier</code>.
+				Store the <code>codeVerifier</code> against this user as this will be required for later.</p>
+				<a href="#redirecting-the-user-to-this-authorization-url" id="redirecting-the-user-to-this-authorization-url" style="color: inherit; text-decoration: none;">
+					<h2>Redirecting the user to this authorization URL</h2>
+				</a>
+				<p>The URL returned is the digi.me web onboard client, and will look something like this.</p>
+				<pre><code><span style="color: #000000">https:</span><span style="color: #008000">//api.digi.me/apps/saas/authorize?code=&lt;code&gt;&amp;callback=&lt;callback&gt;&amp;service=&lt;service-id&gt;</span>
+</code></pre>
+				<p>Redirect the user to this URL, and they will be asked to onboard the service and consent to share the requested data.</p>
+				<p>On <em>success</em>, the <code>redirectUri</code> provided above will be called with the follow extra query parameters:</p>
+				<table>
+					<thead>
+						<tr>
+							<th>Parameter</th>
+							<th>Description</th>
+							<th>Returned Always</th>
+						</tr>
+					</thead>
+					<tbody><tr>
+							<td><code>success</code></td>
+							<td>Whether the call was successful. <code>true</code> or <code>false</code></td>
+							<td>Yes</td>
+						</tr>
+						<tr>
+							<td><code>state</code></td>
+							<td>The same string that was passed in to the <code>getAuthorizationUrl</code> call.</td>
+							<td>Yes</td>
+						</tr>
+						<tr>
+							<td><code>code</code></td>
+							<td>Authorization Code. Only returned when the authorization successful.</td>
+							<td>Yes</td>
+						</tr>
+						<tr>
+							<td><code>postboxId</code></td>
+							<td>Returned only when authorizing a write contract.</td>
+							<td>No</td>
+						</tr>
+						<tr>
+							<td><code>publicKey</code></td>
+							<td>Returned only when authorizing a write contract.</td>
+							<td>No</td>
+						</tr>
+				</tbody></table>
+				<p>On <em>failure</em>, the <code>callbackUrl</code> provided will be called with the follow extra query parameters:</p>
+				<table>
+					<thead>
+						<tr>
+							<th>Parameter</th>
+							<th>Description</th>
+							<th>Returned Always</th>
+						</tr>
+					</thead>
+					<tbody><tr>
+							<td><code>success</code></td>
+							<td>Whether the call was successful. <code>true</code> or <code>false</code></td>
+							<td>Yes</td>
+						</tr>
+						<tr>
+							<td><code>errorCode</code></td>
+							<td>If there was an error, an error code will be returned. Please see the error code section for a list of possible errors.</td>
+							<td>Yes</td>
+						</tr>
+				</tbody></table>
+				<a href="#exchanging-the-result-for-an-user-access-token" id="exchanging-the-result-for-an-user-access-token" style="color: inherit; text-decoration: none;">
+					<h2>Exchanging the result for an user access token.</h2>
+				</a>
+				<p>Once we have the <code>code</code> from a successful authorization, we can combine that with the <code>codeVerifier</code> to exchange a User Access Token.</p>
+				<pre><code class="language-typescript"><span style="color: #008000">// ... initialize the SDK</span>
+
+<span style="color: #008000">// authorizationCode - The code returned in the query parameter of the returned URL.</span>
+<span style="color: #008000">// codeVerifier - The one returned from the result of getAuthorizeUrl().</span>
+<span style="color: #008000">// contractDetails - The same one passed into getAuthorizeUrl().</span>
+
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">userAccessToken</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">sdk</span><span style="color: #000000">.</span><span style="color: #795E26">exchangeCodeForToken</span><span style="color: #000000">({</span>
+<span style="color: #000000">    </span><span style="color: #001080">codeVerifier</span><span style="color: #000000">,</span>
+<span style="color: #000000">    </span><span style="color: #001080">authorizationCode</span><span style="color: #000000">,</span>
+<span style="color: #000000">    </span><span style="color: #001080">contractDetails</span><span style="color: #000000">,</span>
+<span style="color: #000000">});</span>
+
+<span style="color: #008000">// Store the userAccessToken against the current user. We can use this for future reads.</span>
+</code></pre>
+				<p>Once the above steps are completed, you will have an User Access Token for this user for this contract. You will be able to perform read/write tasks from their digi.me library.</p>
+				<p>Note that for the same user, if you&#39;d like to authorize another contract, you&#39;ll need to provide the User Access Token when authorizing for the next contract.</p>
+			</div>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="label pp-nav pp-group">
+						<span>Guides</span>
+					</li>
+					<li class=" pp-nav pp-page">
+						<a href="../guides/start.html">Getting <wbr>Started</a>
+					</li>
+					<li class=" pp-nav pp-page">
+						<a href="../guides/read-data-overview.html">Reading <wbr>Data -<wbr> <wbr>Step by step</a>
+					</li>
+					<li class=" pp-nav pp-page">
+						<a href="../guides/write-data-overview.html">Writing <wbr>Data -<wbr> <wbr>Step by step</a>
+					</li>
+					<li class="label pp-nav pp-group">
+						<span>Fundamentals</span>
+					</li>
+					<li class=" pp-nav pp-page">
+						<a href="contracts.html">Contracts</a>
+					</li>
+					<li class=" pp-nav pp-page">
+						<a href="initialise-sdk.html">Initializing SDK</a>
+					</li>
+					<li class=" pp-nav pp-page">
+						<a href="available-services.html">Getting <wbr>Available <wbr>Services</a>
+					</li>
+					<li class="current pp-nav pp-page">
+						<a href="authorize.html">Authorizing</a>
+					</li>
+					<li class=" pp-nav pp-page">
+						<a href="onboard.html">Onboarding <wbr>Additional <wbr>Services</a>
+					</li>
+					<li class=" pp-nav pp-page pp-parent">
+						<a href="read.html">Reading <wbr>Data</a>
+					</li>
+					<li class=" pp-nav pp-page">
+						<a href="write.html">Writing <wbr>Data</a>
+					</li>
+					<li class=" pp-nav pp-page">
+						<a href="access-token.html">User <wbr>Access <wbr>Tokens</a>
+					</li>
+					<li class=" pp-nav pp-page">
+						<a href="handling-errors.html">Handling <wbr>Errors</a>
+					</li>
+					<li class=" pp-nav pp-page">
+						<a href="example-applications.html">Example <wbr>Applications</a>
+					</li>
+					<li class="label pp-nav pp-group">
+						<span>SDK API</span>
+					</li>
+					<li class=" ">
+						<a href="../../modules.html">Modules</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../../modules/errors.html">Errors</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../../modules/sdk.html">SDK</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../../modules/types.html">Types</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="../../assets/js/main.js"></script>
+<script>if (location.protocol == 'file:') document.write('<script src="../../assets/js/search.json"><' + '/script>');</script>
+</body>
+</html>

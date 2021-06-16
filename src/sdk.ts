@@ -3,9 +3,7 @@
  */
 
 /**
- * This is the entry point to the SDK
- *
- * Specify this is a module comment and rename it to my-module:
+ * This interface specifies all the functions available after the SDK is initialised.
  * @module SDK
  */
 

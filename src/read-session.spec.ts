@@ -7,7 +7,7 @@ import NodeRSA from "node-rsa";
 import { URL } from "url";
 import * as SDK from ".";
 import { SAMPLE_TOKEN, TEST_BASE_URL, TEST_CUSTOM_BASE_URL, TEST_CUSTOM_ONBOARD_URL } from "../utils/test-constants";
-import { TokenRefreshError, TypeValidationError } from "./errors";
+import { ServerError, TypeValidationError } from "./errors";
 import { ReadSessionResponse } from "./read-session";
 import { ContractDetails } from "./types/common";
 import { sign } from "jsonwebtoken";
@@ -279,7 +279,7 @@ describe.each<[string, ReturnType<typeof SDK.init>, string]>([
     });
 
     describe(`readSession throws error when access token refresh fails`, () => {
-        let error: TokenRefreshError;
+        let error: ServerError;
 
         beforeAll(async () => {
             nock(`${new URL(baseUrl).origin}`)
@@ -304,7 +304,7 @@ describe.each<[string, ReturnType<typeof SDK.init>, string]>([
         });
 
         it("expect error thrown to be Server error with the right message", () => {
-            expect(error).toBeInstanceOf(TokenRefreshError);
+            expect(error).toBeInstanceOf(ServerError);
             expect(error.message).toEqual("The token (${tokenType}) is invalid");
             expect(error.error).toEqual({
                 code: "InvalidToken",

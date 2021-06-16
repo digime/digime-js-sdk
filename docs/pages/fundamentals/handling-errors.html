@@ -1,0 +1,279 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Handling Errors | @digime/digime-js-sdk</title>
+	<meta name="description" content="Documentation for @digime/digime-js-sdk">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="../../assets/css/main.css">
+	<link rel="stylesheet" href="../../assets/css/pages.css">
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="../../assets/js/search.json" data-base="../..">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="../../index.html" class="title">@digime/digime-js-sdk</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+							<input type="checkbox" id="tsd-filter-only-exported" />
+							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="../../modules.html">Globals</a>
+				</li>
+				<li>
+					<a href="contracts.html">Fundamentals</a>
+				</li>
+				<li>
+					<a href="handling-errors.html">Handling Errors</a>
+				</li>
+			</ul>
+			<h1>Handling Errors</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<div class="tsd-panel tsd-typography">
+				<p><img src="https://securedownloads.digi.me/partners/digime/SDKReadmeBanner.png" alt=""></p>
+				<p align="center">
+					<a href="https://developers.digi.me/slack/join">
+						<img src="https://img.shields.io/badge/chat-slack-blueviolet.svg" alt="Developer Chat">
+					</a>
+					<a href="LICENSE">
+						<img src="https://img.shields.io/badge/license-apache 2.0-blue.svg" alt="Apache 2.0 License">
+					</a>
+					<a href="#">
+						<img src="https://img.shields.io/badge/build-passing-brightgreen.svg">
+					</a>
+					<a href="https://www.typescriptlang.org/">
+						<img src="https://img.shields.io/badge/language-typescript-ff69b4.svg" alt="Typescript">
+					</a>
+					<a href="https://developers.digi.me/">
+						<img src="https://img.shields.io/badge/web-digi.me-red.svg" alt="Web">
+					</a>
+				</p>
+				<br>
+				<a href="#handling-errors" id="handling-errors" style="color: inherit; text-decoration: none;">
+					<h1>Handling Errors</h1>
+				</a>
+				<p>By default, the SDK retries to make calls twice before giving up. This is something that can be configured when the SDK is <a href="./initialise-sdk.html">initialised</a>.</p>
+				<a href="#errors-returned-from-digime-api" id="errors-returned-from-digime-api" style="color: inherit; text-decoration: none;">
+					<h2>Errors Returned From digi.me API</h2>
+				</a>
+				<p>These are errors that have been thrown by the digi.me API. These errors will be thrown as <code>ServerError</code> and it will contain an error object specifying the error.</p>
+				<pre><code><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">ServerError</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;@digime/digime-js-sdk&quot;</span><span style="color: #000000">;</span>
+
+<span style="color: #008000">// ... init the sdk</span>
+
+<span style="color: #AF00DB">try</span><span style="color: #000000"> {</span>
+<span style="color: #000000">    </span><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">response</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">sdk</span><span style="color: #000000">.</span><span style="color: #795E26">getAuthorizeUrl</span><span style="color: #000000">(</span><span style="color: #001080">parameters</span><span style="color: #000000">);</span>
+<span style="color: #000000">} </span><span style="color: #AF00DB">catch</span><span style="color: #000000"> (</span><span style="color: #001080">e</span><span style="color: #000000">) {</span>
+
+<span style="color: #000000">    </span><span style="color: #008000">// Check if it&#039;s a server error</span>
+<span style="color: #000000">    </span><span style="color: #AF00DB">if</span><span style="color: #000000"> (</span><span style="color: #001080">e</span><span style="color: #000000"> </span><span style="color: #0000FF">instanceof</span><span style="color: #000000"> </span><span style="color: #267F99">ServerError</span><span style="color: #000000">) {</span>
+
+<span style="color: #000000">        </span><span style="color: #008000">// e.error is an object containing a code and a message</span>
+<span style="color: #000000">        </span><span style="color: #0000FF">const</span><span style="color: #000000"> {</span><span style="color: #0070C1">code</span><span style="color: #000000">, </span><span style="color: #0070C1">message</span><span style="color: #000000">} = </span><span style="color: #001080">e</span><span style="color: #000000">.</span><span style="color: #001080">error</span>
+<span style="color: #000000">        </span><span style="color: #AF00DB">return</span><span style="color: #000000"> </span><span style="color: #001080">res</span><span style="color: #000000">.</span><span style="color: #795E26">status</span><span style="color: #000000">(</span><span style="color: #098658">500</span><span style="color: #000000">).</span><span style="color: #795E26">json</span><span style="color: #000000">({ </span><span style="color: #001080">code</span><span style="color: #000000">, </span><span style="color: #001080">message</span><span style="color: #000000"> });</span>
+
+<span style="color: #000000">        </span><span style="color: #008000">// For example when the redirect URL is invalid:</span>
+<span style="color: #000000">        </span><span style="color: #008000">// code: InvalidRedirectUri</span>
+<span style="color: #000000">        </span><span style="color: #008000">// message: &quot;The redirect_uri (${redirectUri}) is invalid&quot;</span>
+<span style="color: #000000">    }</span>
+
+<span style="color: #000000">    </span><span style="color: #001080">res</span><span style="color: #000000">.</span><span style="color: #795E26">status</span><span style="color: #000000">(</span><span style="color: #098658">500</span><span style="color: #000000">).</span><span style="color: #795E26">json</span><span style="color: #000000">({ </span><span style="color: #001080">error</span><span style="color: #000000"> });</span>
+<span style="color: #000000">}</span>
+</code></pre>
+				<p>Some common errors returned from digi.me:</p>
+				<table>
+					<thead>
+						<tr>
+							<th>Code</th>
+							<th>Message</th>
+							<th>Description</th>
+						</tr>
+					</thead>
+					<tbody><tr>
+							<td><code>InvalidRedirectUri</code></td>
+							<td><code>The redirect_uri (${redirectUri}) is invalid</code></td>
+							<td>The redirect URL that was supplied in the contract details was not valid.</td>
+						</tr>
+						<tr>
+							<td><code>InvalidToken</code></td>
+							<td><code>The token (${tokenType}) is invalid</code></td>
+							<td>The user access token or refresh token was invalid.</td>
+						</tr>
+						<tr>
+							<td><code>InvalidClient</code></td>
+							<td><code>The client_id (${clientId}) is invalid</code></td>
+							<td>The contract and/or application ID is invalid for this environment.</td>
+						</tr>
+						<tr>
+							<td><code>InsufficientScope</code></td>
+							<td><code>The request requires higher privileges than provided by the access token</code></td>
+							<td>The contract used is only for one off read.</td>
+						</tr>
+						<tr>
+							<td><code>SDKVersion</code></td>
+							<td></td>
+							<td>This SDK is not recognised.</td>
+						</tr>
+						<tr>
+							<td><code>SDKVersionInvalid</code></td>
+							<td></td>
+							<td>This SDK version is no longer supported.</td>
+						</tr>
+				</tbody></table>
+				<a href="#type-validation-errors" id="type-validation-errors" style="color: inherit; text-decoration: none;">
+					<h2>Type Validation Errors</h2>
+				</a>
+				<p><code>TypeValidationError</code> are thrown when the parameters passed in fail runtime type checks.</p>
+				<a href="#decryption-errors" id="decryption-errors" style="color: inherit; text-decoration: none;">
+					<h2>Decryption Errors</h2>
+				</a>
+				<p>When decrypting files from digi.me, if an incorrect private key is provided, <code>FileDecryptionError</code> will be thrown.</p>
+				<a href="#other-errors" id="other-errors" style="color: inherit; text-decoration: none;">
+					<h2>Other Errors</h2>
+				</a>
+				<p><code>ServerIdentityError</code> - Thrown if there&#39;s a mismatch of certificates when communicating with our production server.</p>
+				<p><code>DigiMeSDKError</code> - Thrown for other generic errors in the SDK.</p>
+				<a href="#further-issues" id="further-issues" style="color: inherit; text-decoration: none;">
+					<h2>Further Issues</h2>
+				</a>
+				<p>If, after reading this section, your issue persists, please contact digi.me developer support. You can find FAQs and create a support ticket by visiting <a href="http://digi.me/support">digi.me support</a>. Alternatively you can email dev support by sending an email to <a href="mailto:support@digi.me">support@digi.me</a></p>
+			</div>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="label pp-nav pp-group">
+						<span>Guides</span>
+					</li>
+					<li class=" pp-nav pp-page">
+						<a href="../guides/start.html">Getting <wbr>Started</a>
+					</li>
+					<li class=" pp-nav pp-page">
+						<a href="../guides/read-data-overview.html">Reading <wbr>Data -<wbr> <wbr>Step by step</a>
+					</li>
+					<li class=" pp-nav pp-page">
+						<a href="../guides/write-data-overview.html">Writing <wbr>Data -<wbr> <wbr>Step by step</a>
+					</li>
+					<li class="label pp-nav pp-group">
+						<span>Fundamentals</span>
+					</li>
+					<li class=" pp-nav pp-page">
+						<a href="contracts.html">Contracts</a>
+					</li>
+					<li class=" pp-nav pp-page">
+						<a href="initialise-sdk.html">Initializing SDK</a>
+					</li>
+					<li class=" pp-nav pp-page">
+						<a href="available-services.html">Getting <wbr>Available <wbr>Services</a>
+					</li>
+					<li class=" pp-nav pp-page">
+						<a href="authorize.html">Authorizing</a>
+					</li>
+					<li class=" pp-nav pp-page">
+						<a href="onboard.html">Onboarding <wbr>Additional <wbr>Services</a>
+					</li>
+					<li class=" pp-nav pp-page pp-parent">
+						<a href="read.html">Reading <wbr>Data</a>
+					</li>
+					<li class=" pp-nav pp-page">
+						<a href="write.html">Writing <wbr>Data</a>
+					</li>
+					<li class=" pp-nav pp-page">
+						<a href="access-token.html">User <wbr>Access <wbr>Tokens</a>
+					</li>
+					<li class="current pp-nav pp-page">
+						<a href="handling-errors.html">Handling <wbr>Errors</a>
+					</li>
+					<li class=" pp-nav pp-page">
+						<a href="example-applications.html">Example <wbr>Applications</a>
+					</li>
+					<li class="label pp-nav pp-group">
+						<span>SDK API</span>
+					</li>
+					<li class=" ">
+						<a href="../../modules.html">Modules</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../../modules/errors.html">Errors</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../../modules/sdk.html">SDK</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../../modules/types.html">Types</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="../../assets/js/main.js"></script>
+<script>if (location.protocol == 'file:') document.write('<script src="../../assets/js/search.json"><' + '/script>');</script>
+</body>
+</html>

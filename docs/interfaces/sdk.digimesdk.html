@@ -1,0 +1,660 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>DigimeSDK | @digime/digime-js-sdk</title>
+	<meta name="description" content="Documentation for @digime/digime-js-sdk">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="../assets/css/main.css">
+	<link rel="stylesheet" href="../assets/css/pages.css">
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="../assets/js/search.json" data-base="..">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="../index.html" class="title">@digime/digime-js-sdk</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+							<input type="checkbox" id="tsd-filter-only-exported" />
+							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="../modules.html">Globals</a>
+				</li>
+				<li>
+					<a href="../modules/sdk.html">SDK</a>
+				</li>
+				<li>
+					<a href="sdk.digimesdk.html">DigimeSDK</a>
+				</li>
+			</ul>
+			<h1>Interface DigimeSDK</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-hierarchy">
+				<h3>Hierarchy</h3>
+				<ul class="tsd-hierarchy">
+					<li>
+						<span class="target">DigimeSDK</span>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel-group tsd-index-group">
+				<h2>Index</h2>
+				<section class="tsd-panel tsd-index-panel">
+					<div class="tsd-index-content">
+						<section class="tsd-index-section ">
+							<h3>Properties</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="sdk.digimesdk.html#deleteuser" class="tsd-kind-icon">delete<wbr>User</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="sdk.digimesdk.html#exchangecodefortoken" class="tsd-kind-icon">exchange<wbr>Code<wbr>For<wbr>Token</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="sdk.digimesdk.html#getauthorizeurl" class="tsd-kind-icon">get<wbr>Authorize<wbr>Url</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="sdk.digimesdk.html#getavailableservices" class="tsd-kind-icon">get<wbr>Available<wbr>Services</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="sdk.digimesdk.html#getonboardserviceurl" class="tsd-kind-icon">get<wbr>Onboard<wbr>Service<wbr>Url</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="sdk.digimesdk.html#readaccounts" class="tsd-kind-icon">read<wbr>Accounts</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="sdk.digimesdk.html#readallfiles" class="tsd-kind-icon">read<wbr>All<wbr>Files</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="sdk.digimesdk.html#readfile" class="tsd-kind-icon">read<wbr>File</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="sdk.digimesdk.html#readfilelist" class="tsd-kind-icon">read<wbr>File<wbr>List</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="sdk.digimesdk.html#readsession" class="tsd-kind-icon">read<wbr>Session</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="sdk.digimesdk.html#write" class="tsd-kind-icon">write</a></li>
+							</ul>
+						</section>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Authorization</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="exchangecodefortoken" class="tsd-anchor"></a>
+					<h3>exchange<wbr>Code<wbr>For<wbr>Token</h3>
+					<div class="tsd-signature tsd-kind-icon">exchange<wbr>Code<wbr>For<wbr>Token<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>props<span class="tsd-signature-symbol">: </span><a href="types.exchangecodefortokenoptions.html" class="tsd-signature-type">ExchangeCodeForTokenOptions</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">UserAccessToken</span><span class="tsd-signature-symbol">&gt;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/digime/digime-js-sdk/blob/88da1bb/src/sdk.ts#L51">src/sdk.ts:51</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter-signature">
+								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-interface">
+									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>props<span class="tsd-signature-symbol">: </span><a href="types.exchangecodefortokenoptions.html" class="tsd-signature-type">ExchangeCodeForTokenOptions</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">UserAccessToken</span><span class="tsd-signature-symbol">&gt;</span></li>
+								</ul>
+								<ul class="tsd-descriptions">
+									<li class="tsd-description">
+										<div class="tsd-comment tsd-typography">
+											<div class="lead">
+												<p>This is called when authorization flow successfully completed, and you have been given an authorization code. We can then use this function to exchange for an access token.</p>
+											</div>
+										</div>
+										<h4 class="tsd-parameters-title">Parameters</h4>
+										<ul class="tsd-parameters">
+											<li>
+												<h5>props: <a href="types.exchangecodefortokenoptions.html" class="tsd-signature-type">ExchangeCodeForTokenOptions</a></h5>
+											</li>
+										</ul>
+										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">UserAccessToken</span><span class="tsd-signature-symbol">&gt;</span></h4>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="getauthorizeurl" class="tsd-anchor"></a>
+					<h3>get<wbr>Authorize<wbr>Url</h3>
+					<div class="tsd-signature tsd-kind-icon">get<wbr>Authorize<wbr>Url<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>props<span class="tsd-signature-symbol">: </span><a href="types.getauthorizeurloptions.html" class="tsd-signature-type">GetAuthorizeUrlOptions</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="types.getauthorizeurlresponse.html" class="tsd-signature-type">GetAuthorizeUrlResponse</a><span class="tsd-signature-symbol">&gt;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/digime/digime-js-sdk/blob/88da1bb/src/sdk.ts#L37">src/sdk.ts:37</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter-signature">
+								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-interface">
+									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>props<span class="tsd-signature-symbol">: </span><a href="types.getauthorizeurloptions.html" class="tsd-signature-type">GetAuthorizeUrlOptions</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="types.getauthorizeurlresponse.html" class="tsd-signature-type">GetAuthorizeUrlResponse</a><span class="tsd-signature-symbol">&gt;</span></li>
+								</ul>
+								<ul class="tsd-descriptions">
+									<li class="tsd-description">
+										<div class="tsd-comment tsd-typography">
+											<div class="lead">
+												<p>In order to write or read data from digi.me, we first need to create an access token. Access tokens are linked to a contract, and it is possible to create multiple access tokens that access to the same digi.me libary. This function is called when:</p>
+												<ul>
+													<li>Authorize a new user. You have the option to also onboard a service during this process.</li>
+													<li>An existing user authorizing a new contract.</li>
+													<li>Existing user’s refresh token has expired and we need to extend it.</li>
+												</ul>
+											</div>
+											<pre><code class="language-typescript"><span style="color: #008000">// run typedoc --help for a list of supported languages</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">instance</span><span style="color: #000000"> = </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #795E26">MyClass</span><span style="color: #000000">();</span>
+</code></pre>
+										</div>
+										<h4 class="tsd-parameters-title">Parameters</h4>
+										<ul class="tsd-parameters">
+											<li>
+												<h5>props: <a href="types.getauthorizeurloptions.html" class="tsd-signature-type">GetAuthorizeUrlOptions</a></h5>
+											</li>
+										</ul>
+										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="types.getauthorizeurlresponse.html" class="tsd-signature-type">GetAuthorizeUrlResponse</a><span class="tsd-signature-symbol">&gt;</span></h4>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="getonboardserviceurl" class="tsd-anchor"></a>
+					<h3>get<wbr>Onboard<wbr>Service<wbr>Url</h3>
+					<div class="tsd-signature tsd-kind-icon">get<wbr>Onboard<wbr>Service<wbr>Url<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>props<span class="tsd-signature-symbol">: </span><a href="types.getonboardserviceurloptions.html" class="tsd-signature-type">GetOnboardServiceUrlOptions</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="types.getonboardserviceurlresponse.html" class="tsd-signature-type">GetOnboardServiceUrlResponse</a><span class="tsd-signature-symbol">&gt;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/digime/digime-js-sdk/blob/88da1bb/src/sdk.ts#L44">src/sdk.ts:44</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter-signature">
+								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-interface">
+									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>props<span class="tsd-signature-symbol">: </span><a href="types.getonboardserviceurloptions.html" class="tsd-signature-type">GetOnboardServiceUrlOptions</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="types.getonboardserviceurlresponse.html" class="tsd-signature-type">GetOnboardServiceUrlResponse</a><span class="tsd-signature-symbol">&gt;</span></li>
+								</ul>
+								<ul class="tsd-descriptions">
+									<li class="tsd-description">
+										<div class="tsd-comment tsd-typography">
+											<div class="lead">
+												<p>This is called when we already have a valid user access token for this user and we want to add more services to this user’s library.</p>
+											</div>
+										</div>
+										<h4 class="tsd-parameters-title">Parameters</h4>
+										<ul class="tsd-parameters">
+											<li>
+												<h5>props: <a href="types.getonboardserviceurloptions.html" class="tsd-signature-type">GetOnboardServiceUrlOptions</a></h5>
+											</li>
+										</ul>
+										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="types.getonboardserviceurlresponse.html" class="tsd-signature-type">GetOnboardServiceUrlResponse</a><span class="tsd-signature-symbol">&gt;</span></h4>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Delete</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="deleteuser" class="tsd-anchor"></a>
+					<h3>delete<wbr>User</h3>
+					<div class="tsd-signature tsd-kind-icon">delete<wbr>User<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>props<span class="tsd-signature-symbol">: </span><a href="types.deleteuseroptions.html" class="tsd-signature-type">DeleteUserOptions</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="types.deleteuserresponse.html" class="tsd-signature-type">DeleteUserResponse</a><span class="tsd-signature-symbol">&gt;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/digime/digime-js-sdk/blob/88da1bb/src/sdk.ts#L100">src/sdk.ts:100</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter-signature">
+								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-interface">
+									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>props<span class="tsd-signature-symbol">: </span><a href="types.deleteuseroptions.html" class="tsd-signature-type">DeleteUserOptions</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="types.deleteuserresponse.html" class="tsd-signature-type">DeleteUserResponse</a><span class="tsd-signature-symbol">&gt;</span></li>
+								</ul>
+								<ul class="tsd-descriptions">
+									<li class="tsd-description">
+										<div class="tsd-comment tsd-typography">
+											<div class="lead">
+												<p>Deletes user data on digi.me</p>
+											</div>
+										</div>
+										<h4 class="tsd-parameters-title">Parameters</h4>
+										<ul class="tsd-parameters">
+											<li>
+												<h5>props: <a href="types.deleteuseroptions.html" class="tsd-signature-type">DeleteUserOptions</a></h5>
+											</li>
+										</ul>
+										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="types.deleteuserresponse.html" class="tsd-signature-type">DeleteUserResponse</a><span class="tsd-signature-symbol">&gt;</span></h4>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Read</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="getavailableservices" class="tsd-anchor"></a>
+					<h3>get<wbr>Available<wbr>Services</h3>
+					<div class="tsd-signature tsd-kind-icon">get<wbr>Available<wbr>Services<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>contractId<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="types.getavailableservicesresponse.html" class="tsd-signature-type">GetAvailableServicesResponse</a><span class="tsd-signature-symbol">&gt;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/digime/digime-js-sdk/blob/88da1bb/src/sdk.ts#L107">src/sdk.ts:107</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter-signature">
+								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-interface">
+									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>contractId<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="types.getavailableservicesresponse.html" class="tsd-signature-type">GetAvailableServicesResponse</a><span class="tsd-signature-symbol">&gt;</span></li>
+								</ul>
+								<ul class="tsd-descriptions">
+									<li class="tsd-description">
+										<div class="tsd-comment tsd-typography">
+											<div class="lead">
+												<p>Get a list of possible services a user can onboard to their digi.me</p>
+											</div>
+										</div>
+										<h4 class="tsd-parameters-title">Parameters</h4>
+										<ul class="tsd-parameters">
+											<li>
+												<h5><span class="tsd-flag ts-flagOptional">Optional</span> contractId: <span class="tsd-signature-type">string</span></h5>
+											</li>
+										</ul>
+										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="types.getavailableservicesresponse.html" class="tsd-signature-type">GetAvailableServicesResponse</a><span class="tsd-signature-symbol">&gt;</span></h4>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="readaccounts" class="tsd-anchor"></a>
+					<h3>read<wbr>Accounts</h3>
+					<div class="tsd-signature tsd-kind-icon">read<wbr>Accounts<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>props<span class="tsd-signature-symbol">: </span><a href="types.readaccountsoptions.html" class="tsd-signature-type">ReadAccountsOptions</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../modules/types.html#readaccountsresponse" class="tsd-signature-type">ReadAccountsResponse</a><span class="tsd-signature-symbol">&gt;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/digime/digime-js-sdk/blob/88da1bb/src/sdk.ts#L93">src/sdk.ts:93</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter-signature">
+								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-interface">
+									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>props<span class="tsd-signature-symbol">: </span><a href="types.readaccountsoptions.html" class="tsd-signature-type">ReadAccountsOptions</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../modules/types.html#readaccountsresponse" class="tsd-signature-type">ReadAccountsResponse</a><span class="tsd-signature-symbol">&gt;</span></li>
+								</ul>
+								<ul class="tsd-descriptions">
+									<li class="tsd-description">
+										<div class="tsd-comment tsd-typography">
+											<div class="lead">
+												<p>Get a list of accounts that exist of current user&#39;s library.</p>
+											</div>
+										</div>
+										<h4 class="tsd-parameters-title">Parameters</h4>
+										<ul class="tsd-parameters">
+											<li>
+												<h5>props: <a href="types.readaccountsoptions.html" class="tsd-signature-type">ReadAccountsOptions</a></h5>
+											</li>
+										</ul>
+										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../modules/types.html#readaccountsresponse" class="tsd-signature-type">ReadAccountsResponse</a><span class="tsd-signature-symbol">&gt;</span></h4>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="readallfiles" class="tsd-anchor"></a>
+					<h3>read<wbr>All<wbr>Files</h3>
+					<div class="tsd-signature tsd-kind-icon">read<wbr>All<wbr>Files<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>props<span class="tsd-signature-symbol">: </span><a href="types.readallfilesoptions.html" class="tsd-signature-type">ReadAllFilesOptions</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><a href="types.readallfilesresponse.html" class="tsd-signature-type">ReadAllFilesResponse</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/digime/digime-js-sdk/blob/88da1bb/src/sdk.ts#L86">src/sdk.ts:86</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter-signature">
+								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-interface">
+									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>props<span class="tsd-signature-symbol">: </span><a href="types.readallfilesoptions.html" class="tsd-signature-type">ReadAllFilesOptions</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="types.readallfilesresponse.html" class="tsd-signature-type">ReadAllFilesResponse</a></li>
+								</ul>
+								<ul class="tsd-descriptions">
+									<li class="tsd-description">
+										<div class="tsd-comment tsd-typography">
+											<div class="lead">
+												<p>Handy util function to download all available user files.</p>
+											</div>
+										</div>
+										<h4 class="tsd-parameters-title">Parameters</h4>
+										<ul class="tsd-parameters">
+											<li>
+												<h5>props: <a href="types.readallfilesoptions.html" class="tsd-signature-type">ReadAllFilesOptions</a></h5>
+											</li>
+										</ul>
+										<h4 class="tsd-returns-title">Returns <a href="types.readallfilesresponse.html" class="tsd-signature-type">ReadAllFilesResponse</a></h4>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="readfile" class="tsd-anchor"></a>
+					<h3>read<wbr>File</h3>
+					<div class="tsd-signature tsd-kind-icon">read<wbr>File<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>props<span class="tsd-signature-symbol">: </span><a href="types.readfileoptions.html" class="tsd-signature-type">ReadFileOptions</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="types.readfileresponse.html" class="tsd-signature-type">ReadFileResponse</a><span class="tsd-signature-symbol">&gt;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/digime/digime-js-sdk/blob/88da1bb/src/sdk.ts#L72">src/sdk.ts:72</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter-signature">
+								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-interface">
+									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>props<span class="tsd-signature-symbol">: </span><a href="types.readfileoptions.html" class="tsd-signature-type">ReadFileOptions</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="types.readfileresponse.html" class="tsd-signature-type">ReadFileResponse</a><span class="tsd-signature-symbol">&gt;</span></li>
+								</ul>
+								<ul class="tsd-descriptions">
+									<li class="tsd-description">
+										<div class="tsd-comment tsd-typography">
+											<div class="lead">
+												<p>Download a file.</p>
+											</div>
+										</div>
+										<h4 class="tsd-parameters-title">Parameters</h4>
+										<ul class="tsd-parameters">
+											<li>
+												<h5>props: <a href="types.readfileoptions.html" class="tsd-signature-type">ReadFileOptions</a></h5>
+											</li>
+										</ul>
+										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="types.readfileresponse.html" class="tsd-signature-type">ReadFileResponse</a><span class="tsd-signature-symbol">&gt;</span></h4>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="readfilelist" class="tsd-anchor"></a>
+					<h3>read<wbr>File<wbr>List</h3>
+					<div class="tsd-signature tsd-kind-icon">read<wbr>File<wbr>List<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>props<span class="tsd-signature-symbol">: </span><a href="types.readfilelistoptions.html" class="tsd-signature-type">ReadFileListOptions</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="types.readfilelistresponse.html" class="tsd-signature-type">ReadFileListResponse</a><span class="tsd-signature-symbol">&gt;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/digime/digime-js-sdk/blob/88da1bb/src/sdk.ts#L79">src/sdk.ts:79</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter-signature">
+								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-interface">
+									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>props<span class="tsd-signature-symbol">: </span><a href="types.readfilelistoptions.html" class="tsd-signature-type">ReadFileListOptions</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="types.readfilelistresponse.html" class="tsd-signature-type">ReadFileListResponse</a><span class="tsd-signature-symbol">&gt;</span></li>
+								</ul>
+								<ul class="tsd-descriptions">
+									<li class="tsd-description">
+										<div class="tsd-comment tsd-typography">
+											<div class="lead">
+												<p>Get a list of files that are ready to be downloaded.</p>
+											</div>
+										</div>
+										<h4 class="tsd-parameters-title">Parameters</h4>
+										<ul class="tsd-parameters">
+											<li>
+												<h5>props: <a href="types.readfilelistoptions.html" class="tsd-signature-type">ReadFileListOptions</a></h5>
+											</li>
+										</ul>
+										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="types.readfilelistresponse.html" class="tsd-signature-type">ReadFileListResponse</a><span class="tsd-signature-symbol">&gt;</span></h4>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="readsession" class="tsd-anchor"></a>
+					<h3>read<wbr>Session</h3>
+					<div class="tsd-signature tsd-kind-icon">read<wbr>Session<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>props<span class="tsd-signature-symbol">: </span><a href="types.readsessionoptions.html" class="tsd-signature-type">ReadSessionOptions</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="types.readsessionresponse.html" class="tsd-signature-type">ReadSessionResponse</a><span class="tsd-signature-symbol">&gt;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/digime/digime-js-sdk/blob/88da1bb/src/sdk.ts#L65">src/sdk.ts:65</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter-signature">
+								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-interface">
+									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>props<span class="tsd-signature-symbol">: </span><a href="types.readsessionoptions.html" class="tsd-signature-type">ReadSessionOptions</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="types.readsessionresponse.html" class="tsd-signature-type">ReadSessionResponse</a><span class="tsd-signature-symbol">&gt;</span></li>
+								</ul>
+								<ul class="tsd-descriptions">
+									<li class="tsd-description">
+										<div class="tsd-comment tsd-typography">
+											<div class="lead">
+												<p>Start a new read session. When we already have an user access token.</p>
+											</div>
+										</div>
+										<h4 class="tsd-parameters-title">Parameters</h4>
+										<ul class="tsd-parameters">
+											<li>
+												<h5>props: <a href="types.readsessionoptions.html" class="tsd-signature-type">ReadSessionOptions</a></h5>
+											</li>
+										</ul>
+										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="types.readsessionresponse.html" class="tsd-signature-type">ReadSessionResponse</a><span class="tsd-signature-symbol">&gt;</span></h4>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Write</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="write" class="tsd-anchor"></a>
+					<h3>write</h3>
+					<div class="tsd-signature tsd-kind-icon">write<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>props<span class="tsd-signature-symbol">: </span><a href="types.writeoptions.html" class="tsd-signature-type">WriteOptions</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="types.writeresponse.html" class="tsd-signature-type">WriteResponse</a><span class="tsd-signature-symbol">&gt;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/digime/digime-js-sdk/blob/88da1bb/src/sdk.ts#L58">src/sdk.ts:58</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter-signature">
+								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-interface">
+									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>props<span class="tsd-signature-symbol">: </span><a href="types.writeoptions.html" class="tsd-signature-type">WriteOptions</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="types.writeresponse.html" class="tsd-signature-type">WriteResponse</a><span class="tsd-signature-symbol">&gt;</span></li>
+								</ul>
+								<ul class="tsd-descriptions">
+									<li class="tsd-description">
+										<div class="tsd-comment tsd-typography">
+											<div class="lead">
+												<p>Write something to the user&#39;s digi.me</p>
+											</div>
+										</div>
+										<h4 class="tsd-parameters-title">Parameters</h4>
+										<ul class="tsd-parameters">
+											<li>
+												<h5>props: <a href="types.writeoptions.html" class="tsd-signature-type">WriteOptions</a></h5>
+											</li>
+										</ul>
+										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="types.writeresponse.html" class="tsd-signature-type">WriteResponse</a><span class="tsd-signature-symbol">&gt;</span></h4>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</section>
+			</section>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="label pp-nav pp-group">
+						<span>Guides</span>
+					</li>
+					<li class=" pp-nav pp-page">
+						<a href="../pages/guides/start.html">Getting <wbr>Started</a>
+					</li>
+					<li class=" pp-nav pp-page">
+						<a href="../pages/guides/read-data-overview.html">Reading <wbr>Data -<wbr> <wbr>Step by step</a>
+					</li>
+					<li class=" pp-nav pp-page">
+						<a href="../pages/guides/write-data-overview.html">Writing <wbr>Data -<wbr> <wbr>Step by step</a>
+					</li>
+					<li class="label pp-nav pp-group">
+						<span>Fundamentals</span>
+					</li>
+					<li class=" pp-nav pp-page">
+						<a href="../pages/fundamentals/contracts.html">Contracts</a>
+					</li>
+					<li class=" pp-nav pp-page">
+						<a href="../pages/fundamentals/initialise-sdk.html">Initializing SDK</a>
+					</li>
+					<li class=" pp-nav pp-page">
+						<a href="../pages/fundamentals/available-services.html">Getting <wbr>Available <wbr>Services</a>
+					</li>
+					<li class=" pp-nav pp-page">
+						<a href="../pages/fundamentals/authorize.html">Authorizing</a>
+					</li>
+					<li class=" pp-nav pp-page">
+						<a href="../pages/fundamentals/onboard.html">Onboarding <wbr>Additional <wbr>Services</a>
+					</li>
+					<li class=" pp-nav pp-page pp-parent">
+						<a href="../pages/fundamentals/read.html">Reading <wbr>Data</a>
+					</li>
+					<li class=" pp-nav pp-page">
+						<a href="../pages/fundamentals/write.html">Writing <wbr>Data</a>
+					</li>
+					<li class=" pp-nav pp-page">
+						<a href="../pages/fundamentals/access-token.html">User <wbr>Access <wbr>Tokens</a>
+					</li>
+					<li class=" pp-nav pp-page">
+						<a href="../pages/fundamentals/handling-errors.html">Handling <wbr>Errors</a>
+					</li>
+					<li class=" pp-nav pp-page">
+						<a href="../pages/fundamentals/example-applications.html">Example <wbr>Applications</a>
+					</li>
+					<li class="label pp-nav pp-group">
+						<span>SDK API</span>
+					</li>
+					<li class=" ">
+						<a href="../modules.html">Modules</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/errors.html">Errors</a>
+					</li>
+					<li class="current tsd-kind-module">
+						<a href="../modules/sdk.html">SDK</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/types.html">Types</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-interface tsd-parent-kind-module">
+						<a href="sdk.digimesdk.html" class="tsd-kind-icon">DigimeSDK</a>
+						<ul>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="sdk.digimesdk.html#deleteuser" class="tsd-kind-icon">delete<wbr>User</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="sdk.digimesdk.html#exchangecodefortoken" class="tsd-kind-icon">exchange<wbr>Code<wbr>For<wbr>Token</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="sdk.digimesdk.html#getauthorizeurl" class="tsd-kind-icon">get<wbr>Authorize<wbr>Url</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="sdk.digimesdk.html#getavailableservices" class="tsd-kind-icon">get<wbr>Available<wbr>Services</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="sdk.digimesdk.html#getonboardserviceurl" class="tsd-kind-icon">get<wbr>Onboard<wbr>Service<wbr>Url</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="sdk.digimesdk.html#readaccounts" class="tsd-kind-icon">read<wbr>Accounts</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="sdk.digimesdk.html#readallfiles" class="tsd-kind-icon">read<wbr>All<wbr>Files</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="sdk.digimesdk.html#readfile" class="tsd-kind-icon">read<wbr>File</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="sdk.digimesdk.html#readfilelist" class="tsd-kind-icon">read<wbr>File<wbr>List</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="sdk.digimesdk.html#readsession" class="tsd-kind-icon">read<wbr>Session</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="sdk.digimesdk.html#write" class="tsd-kind-icon">write</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="after-current">
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="../assets/js/main.js"></script>
+<script>if (location.protocol == 'file:') document.write('<script src="../assets/js/search.json"><' + '/script>');</script>
+</body>
+</html>

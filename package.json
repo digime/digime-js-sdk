@@ -16,7 +16,8 @@
     "test": "./node_modules/.bin/jest --coverage --config=jest-config.json",
     "code-statistics": "./node_modules/.bin/sloc src",
     "version": "ts-node ./tools/update-sdk-version.ts",
-    "preversion": "npm run test"
+    "preversion": "npm run test",
+    "generate-docs": "./node_modules/.bin/typedoc"
   },
   "repository": {
     "type": "git",
@@ -55,6 +56,8 @@
     "sloc": "~0.2.1",
     "ts-jest": "~27.0.3",
     "ts-node": "~10.0.0",
+    "typedoc": "~0.21.2",
+    "typedoc-plugin-pages-fork": "0.0.1",
     "typescript": "~4.3.4"
   },
   "dependencies": {

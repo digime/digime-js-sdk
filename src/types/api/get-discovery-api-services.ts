@@ -28,7 +28,7 @@ export interface DiscoveryApiServicesData {
     services: DiscoveryService[];
 }
 
-export const DiscoverySourceCodec: t.Type<DiscoveryService> = t.strict({
+export const DiscoveryServiceCodec: t.Type<DiscoveryService> = t.strict({
     id: t.number,
     name: t.string,
     serviceGroups: t.array(
@@ -52,7 +52,7 @@ export const DiscoverySourceGroupCodec: t.Type<DiscoveryServiceGroup> = t.strict
 export const DiscoveryApiServicesDataCodec: t.Type<DiscoveryApiServicesData> = t.strict({
     countries: t.array(DiscoveryServiceCountryCodec),
     serviceGroups: t.array(DiscoverySourceGroupCodec),
-    services: t.array(DiscoverySourceCodec),
+    services: t.array(DiscoveryServiceCodec),
 });
 
 export const DiscoveryApiServicesDataResponseCodec: t.Type<DiscoveryApiServicesDataResponse> = t.strict({

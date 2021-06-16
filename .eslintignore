@@ -2,3 +2,5 @@
 coverage
 # Don't lint build output
 dist
+# Don't lint docs
+docs

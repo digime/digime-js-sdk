@@ -1,0 +1,340 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Reading Data - Step by step | @digime/digime-js-sdk</title>
+	<meta name="description" content="Documentation for @digime/digime-js-sdk">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="../../assets/css/main.css">
+	<link rel="stylesheet" href="../../assets/css/pages.css">
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="../../assets/js/search.json" data-base="../..">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="../../index.html" class="title">@digime/digime-js-sdk</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+							<input type="checkbox" id="tsd-filter-only-exported" />
+							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="../../modules.html">Globals</a>
+				</li>
+				<li>
+					<a href="start.html">Guides</a>
+				</li>
+				<li>
+					<a href="read-data-overview.html">Reading Data - Step by step</a>
+				</li>
+			</ul>
+			<h1>Reading Data - Step by step</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<div class="tsd-panel tsd-typography">
+				<p><img src="https://securedownloads.digi.me/partners/digime/SDKReadmeBanner.png" alt=""></p>
+				<p align="center">
+					<a href="https://developers.digi.me/slack/join">
+						<img src="https://img.shields.io/badge/chat-slack-blueviolet.svg" alt="Developer Chat">
+					</a>
+					<a href="LICENSE">
+						<img src="https://img.shields.io/badge/license-apache 2.0-blue.svg" alt="Apache 2.0 License">
+					</a>
+					<a href="#">
+						<img src="https://img.shields.io/badge/build-passing-brightgreen.svg">
+					</a>
+					<a href="https://www.typescriptlang.org/">
+						<img src="https://img.shields.io/badge/language-typescript-ff69b4.svg" alt="Typescript">
+					</a>
+					<a href="https://developers.digi.me/">
+						<img src="https://img.shields.io/badge/web-digi.me-red.svg" alt="Web">
+					</a>
+				</p>
+				<br>
+				<a href="#reading-data---step-by-step-guide" id="reading-data---step-by-step-guide" style="color: inherit; text-decoration: none;">
+					<h1>Reading data - Step by step guide</h1>
+				</a>
+				<p>Requesting user data using digi.me is easy!</p>
+				<p>On this page, we will learn how to receive data from your users using the digi.me Private Share platform.</p>
+				<p>In order to access the digi.me platform, you need to obtain an application ID, a contract ID for reading data and its private key.</p>
+				<p>Please check out <a href="./start.html">Getting Started</a> for more details.</p>
+				<a href="#1-available-services" id="1-available-services" style="color: inherit; text-decoration: none;">
+					<h2>1. Available Services</h2>
+				</a>
+				<p>To start reading user data, we first need to ask the user to onboard a service.</p>
+				<p>To see a list of services available for users to onboard:</p>
+				<pre><code class="language-typescript"><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">init</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;@digime/digime-js-sdk&quot;</span><span style="color: #000000">;</span>
+
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">sdk</span><span style="color: #000000"> = </span><span style="color: #795E26">init</span><span style="color: #000000">({ </span><span style="color: #001080">applicationId</span><span style="color: #000000"> });</span>
+
+<span style="color: #008000">// Contract Id of your READ contract</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">availableServices</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">sdk</span><span style="color: #000000">.</span><span style="color: #795E26">getAvailableServices</span><span style="color: #000000">(</span><span style="color: #001080">contractId</span><span style="color: #000000">);</span>
+
+<span style="color: #008000">// =&gt; Result will be an object with available services for your contract ID.</span>
+</code></pre>
+				<p>See <a href="../fundamentals/available-services.html">Available Services</a> for more explanation.</p>
+				<a href="#2-onboarding-and-authorization" id="2-onboarding-and-authorization" style="color: inherit; text-decoration: none;">
+					<h2>2. Onboarding and Authorization</h2>
+				</a>
+				<p>To start reading user data, we need to ask the user to onboard a service and authorize us to access it.</p>
+				<p><em>If you already have an user access token for this user from another contract, you will still need to go through this process. Make sure to include any user access tokens you already have so we can link to the same library.</em></p>
+				<a href="#getting-an-authorization-url-and-a-code-verifier" id="getting-an-authorization-url-and-a-code-verifier" style="color: inherit; text-decoration: none;">
+					<h3>Getting an authorization URL and a code verifier</h3>
+				</a>
+				<p>Start this process by getting the authorization URL by calling <code>getAuthorizeUrl</code>:</p>
+				<pre><code class="language-typescript"><span style="color: #008000">// ... initialize the SDK</span>
+
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">contractDetails</span><span style="color: #000000"> = {</span>
+<span style="color: #000000">    </span><span style="color: #001080">contractId:</span><span style="color: #000000"> &lt;</span><span style="color: #267F99">your</span><span style="color: #000000">-</span><span style="color: #267F99">contract</span><span style="color: #000000">-</span><span style="color: #267F99">id</span><span style="color: #000000">&gt;,</span>
+<span style="color: #000000">    </span><span style="color: #001080">privateKey:</span><span style="color: #000000"> &lt;</span><span style="color: #267F99">private</span><span style="color: #000000">-</span><span style="color: #267F99">key</span><span style="color: #000000">-</span><span style="color: #267F99">for</span><span style="color: #000000">-</span><span style="color: #267F99">contract</span><span style="color: #000000">-</span><span style="color: #267F99">id</span><span style="color: #000000">&gt;,</span>
+<span style="color: #000000">    </span><span style="color: #001080">redirectUri:</span><span style="color: #000000"> &lt;</span><span style="color: #267F99">an</span><span style="color: #000000">-</span><span style="color: #267F99">url</span><span style="color: #000000">-</span><span style="color: #267F99">to</span><span style="color: #000000">-</span><span style="color: #267F99">call</span><span style="color: #000000">-</span><span style="color: #267F99">when</span><span style="color: #000000">-</span><span style="color: #267F99">authorization</span><span style="color: #000000">-</span><span style="color: #267F99">is</span><span style="color: #000000">-</span><span style="color: #267F99">complete</span><span style="color: #000000">&gt;,</span>
+<span style="color: #000000">}</span>
+
+<span style="color: #0000FF">const</span><span style="color: #000000"> { </span><span style="color: #0070C1">url</span><span style="color: #000000">, </span><span style="color: #0070C1">codeVerifier</span><span style="color: #000000"> } = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">sdk</span><span style="color: #000000">.</span><span style="color: #795E26">getAuthorizeUrl</span><span style="color: #000000">({</span>
+<span style="color: #000000">    </span><span style="color: #001080">contractDetails</span><span style="color: #000000">,</span>
+<span style="color: #000000">    </span><span style="color: #001080">callback:</span><span style="color: #000000"> &lt;</span><span style="color: #267F99">an</span><span style="color: #000000">-</span><span style="color: #267F99">url</span><span style="color: #000000">-</span><span style="color: #267F99">to</span><span style="color: #000000">-</span><span style="color: #267F99">call</span><span style="color: #000000">-</span><span style="color: #267F99">when</span><span style="color: #000000">-</span><span style="color: #267F99">an</span><span style="color: #000000">-</span><span style="color: #267F99">error</span><span style="color: #000000">-</span><span style="color: #267F99">is</span><span style="color: #000000">-</span><span style="color: #267F99">encountered</span><span style="color: #000000">&gt;,</span>
+<span style="color: #000000">    </span><span style="color: #001080">serviceId:</span><span style="color: #000000"> </span><span style="color: #795E26">toNumber</span><span style="color: #000000">(</span><span style="color: #001080">serviceId</span><span style="color: #000000">),</span>
+<span style="color: #000000">    </span><span style="color: #001080">state:</span><span style="color: #000000"> &lt;</span><span style="color: #267F99">any</span><span style="color: #000000">-</span><span style="color: #267F99">details</span><span style="color: #000000">-</span><span style="color: #267F99">to</span><span style="color: #000000">-</span><span style="color: #267F99">help</span><span style="color: #000000">-</span><span style="color: #267F99">you</span><span style="color: #000000">-</span><span style="color: #267F99">identify</span><span style="color: #000000">-</span><span style="color: #267F99">user</span><span style="color: #000000">-</span><span style="color: #267F99">on</span><span style="color: #000000">-</span><span style="color: #267F99">return</span><span style="color: #000000">&gt;,</span>
+<span style="color: #000000">    </span><span style="color: #001080">userAccessToken:</span><span style="color: #000000"> &lt;</span><span style="color: #267F99">if</span><span style="color: #000000">-</span><span style="color: #267F99">you</span><span style="color: #000000">-</span><span style="color: #267F99">already</span><span style="color: #000000">-</span><span style="color: #267F99">have</span><span style="color: #000000">-</span><span style="color: #267F99">one</span><span style="color: #000000">&gt;</span>
+<span style="color: #000000">});</span>
+
+<span style="color: #008000">// Store the codeVerifier against the current user, and redirect them to the url returned.</span>
+<span style="color: #008000">// This will kick start the authorization process.</span>
+</code></pre>
+				<a href="#redirect-the-user" id="redirect-the-user" style="color: inherit; text-decoration: none;">
+					<h3>Redirect the user</h3>
+				</a>
+				<p>From the step above, you will have received a URL to which you can redirect your users to to start the authorization process.
+				Don&#39;t forget to also store the code verifier against this user as you&#39;ll need it later!</p>
+				<p>An authorization URL should look something like:</p>
+				<pre><code><span style="color: #000000">https:</span><span style="color: #008000">//api.digi.me/apps/saas/authorize?code=&lt;code&gt;&amp;callback=&lt;callback&gt;&amp;service=&lt;service-id&gt;</span>
+</code></pre>
+				<a href="#redirect-back-to-your-application" id="redirect-back-to-your-application" style="color: inherit; text-decoration: none;">
+					<h3>Redirect back to your application</h3>
+				</a>
+				<p>After the user has onboarded and finished with the authorization, the <code>redirectUri</code> provided in <code>contractDetails</code> will be called.
+				An example URL might be:</p>
+				<pre><code><span style="color: #000000">https:</span><span style="color: #008000">//your-website.com/return?success=true&amp;code=&lt;authorization-code&gt;&amp;state=&lt;state-passed-in-from-before&gt;</span>
+</code></pre>
+				<p>Extra query parameter <code>code</code> will be attached which can be used to exchange for an user access token.</p>
+				<a href="#4-exchange-for-an-user-access-token" id="4-exchange-for-an-user-access-token" style="color: inherit; text-decoration: none;">
+					<h2>4. Exchange for an User Access Token</h2>
+				</a>
+				<p>The <code>code</code> returned in the query parameters in the step above can be used with the <code>codeVerifier</code> to exchange for a user access token. This allows you to request updated data from this user in the future for as long as the user access token is valid. Read more about the user access token <a href="../fundamentals/access-token.html">here</a>.</p>
+				<pre><code class="language-typescript"><span style="color: #008000">// ... initialize the SDK</span>
+
+<span style="color: #008000">// authorizationCode - The code returned in the query parameter of the returned URL.</span>
+<span style="color: #008000">// codeVerifier - The one stored from step above.</span>
+<span style="color: #008000">// contractDetails - The same one used in getAuthorizeUrl().</span>
+
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">userAccessToken</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">sdk</span><span style="color: #000000">.</span><span style="color: #795E26">exchangeCodeForToken</span><span style="color: #000000">({</span>
+<span style="color: #000000">    </span><span style="color: #001080">codeVerifier</span><span style="color: #000000">,</span>
+<span style="color: #000000">    </span><span style="color: #001080">authorizationCode</span><span style="color: #000000">,</span>
+<span style="color: #000000">    </span><span style="color: #001080">contractDetails</span><span style="color: #000000">,</span>
+<span style="color: #000000">});</span>
+
+<span style="color: #008000">// Store the userAccessToken against the current user. We can use this for future reads.</span>
+</code></pre>
+				<p>You now have a user access token for this user which you can use to read data from this user in the future.</p>
+				<a href="#optional-onboarding-more-services" id="optional-onboarding-more-services" style="color: inherit; text-decoration: none;">
+					<h2>(Optional) Onboarding More Services.</h2>
+				</a>
+				<p>If you need to ask the user to onboard more services, you can use call:</p>
+				<pre><code class="language-typescript"><span style="color: #008000">// ... initialize the SDK</span>
+
+<span style="color: #008000">// callback - The URL to call after user is onboarded.</span>
+<span style="color: #008000">// contractDetails - The same one used in getAuthorizeUrl().</span>
+<span style="color: #008000">// serviceId - The service to onboard</span>
+<span style="color: #008000">// userAccessToken - The user access token from the authorization step.</span>
+
+<span style="color: #0000FF">const</span><span style="color: #000000"> { </span><span style="color: #0070C1">url</span><span style="color: #000000"> } = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">sdk</span><span style="color: #000000">.</span><span style="color: #795E26">getOnboardServiceUrl</span><span style="color: #000000">({</span>
+<span style="color: #000000">    </span><span style="color: #001080">callback</span><span style="color: #000000">,</span>
+<span style="color: #000000">    </span><span style="color: #001080">contractDetails</span><span style="color: #000000">,</span>
+<span style="color: #000000">    </span><span style="color: #001080">serviceId</span><span style="color: #000000">,</span>
+<span style="color: #000000">    </span><span style="color: #001080">userAccessToken</span><span style="color: #000000">,</span>
+<span style="color: #000000">});</span>
+
+<span style="color: #008000">// Redirect the user to the url returned and this will kick start the onboarding process.</span>
+</code></pre>
+				<p>After the user has onboarded and finished with the authorization, the <code>callback</code> provided will be called. You are welcome to populate the <code>callback</code> with any query parameters to help you identify the user. An example of a returned URL might be:</p>
+				<pre><code><span style="color: #000000">https:</span><span style="color: #008000">//your-website.com/onboard-return?userId=&lt;user-id&gt;&amp;success=true</span>
+</code></pre>
+				<a href="#5-start-a-read-session" id="5-start-a-read-session" style="color: inherit; text-decoration: none;">
+					<h2>5. Start a Read Session</h2>
+				</a>
+				<p>When your user has onboarded all the services you require, we can kick off a read session:</p>
+				<pre><code class="language-typescript"><span style="color: #008000">// ... initialize the SDK</span>
+
+<span style="color: #008000">// contractDetails - The same one used in getAuthorizeUrl().</span>
+<span style="color: #008000">// userAccessToken - The user access token from the authorization step.</span>
+
+<span style="color: #0000FF">const</span><span style="color: #000000"> { </span><span style="color: #0070C1">session</span><span style="color: #000000">, </span><span style="color: #0070C1">updatedAccessToken</span><span style="color: #000000"> }  = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">sdk</span><span style="color: #000000">.</span><span style="color: #795E26">readSession</span><span style="color: #000000">({</span>
+<span style="color: #000000">    </span><span style="color: #001080">contractDetails</span><span style="color: #000000">,</span>
+<span style="color: #000000">    </span><span style="color: #001080">userAccessToken</span><span style="color: #000000">,</span>
+<span style="color: #000000">});</span>
+
+<span style="color: #008000">// A session object will be returned which can then be used to query data.</span>
+<span style="color: #008000">// If the user access token needed to be refreshed, the SDK will handle that automatically and the new one will be returned</span>
+</code></pre>
+				<p>The <code>session</code> object can be used to query the data from this user.</p>
+				<a href="#6-query-user-data" id="6-query-user-data" style="color: inherit; text-decoration: none;">
+					<h2>6. Query user data.</h2>
+				</a>
+				<p>Once we have a session, we can query the data.</p>
+				<pre><code class="language-typescript"><span style="color: #008000">// ... initialize the SDK</span>
+
+<span style="color: #008000">// session - The session we received from readSession().</span>
+<span style="color: #008000">// privateKey - The private key for this contract.</span>
+<span style="color: #008000">// onFileData - A function that will be called when a file is successfully downloaded.</span>
+<span style="color: #008000">// onFileError - A function that will be called when an error occurs when downloading a file.</span>
+
+<span style="color: #0000FF">const</span><span style="color: #000000"> { </span><span style="color: #0070C1">stopPolling</span><span style="color: #000000">, </span><span style="color: #0070C1">filePromise</span><span style="color: #000000"> } = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">sdk</span><span style="color: #000000">.</span><span style="color: #795E26">readAllFiles</span><span style="color: #000000">({</span>
+<span style="color: #000000">    </span><span style="color: #001080">sessionKey:</span><span style="color: #000000"> </span><span style="color: #001080">session</span><span style="color: #000000">.</span><span style="color: #001080">key</span><span style="color: #000000">,</span>
+<span style="color: #000000">    </span><span style="color: #001080">privateKey:</span><span style="color: #000000"> &lt;</span><span style="color: #267F99">private</span><span style="color: #000000">-</span><span style="color: #267F99">key</span><span style="color: #000000">-</span><span style="color: #267F99">of</span><span style="color: #000000">-</span><span style="color: #267F99">contract</span><span style="color: #000000">&gt;,</span>
+<span style="color: #000000">    </span><span style="color: #001080">onFileData:</span><span style="color: #000000"> </span><span style="color: #001080">onFileDownloaded</span><span style="color: #000000">,</span>
+<span style="color: #000000">    </span><span style="color: #001080">onFileError:</span><span style="color: #000000"> </span><span style="color: #001080">onFileError</span>
+<span style="color: #000000">});</span>
+
+<span style="color: #008000">// filePromise is a promise that will resolve when data fetching is complete.</span>
+<span style="color: #008000">// stopPolling is a function that you can call if you would like to stop the process when it&#039;s still running.</span>
+</code></pre>
+				<p>And that&#39;s it, you&#39;ve successfully received data from the user using digi.me!</p>
+				<p>Next time you want to get data from the same user, you can reuse the User Access Token and go straight to step 5 of the process!</p>
+			</div>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="label pp-nav pp-group">
+						<span>Guides</span>
+					</li>
+					<li class=" pp-nav pp-page">
+						<a href="start.html">Getting <wbr>Started</a>
+					</li>
+					<li class="current pp-nav pp-page">
+						<a href="read-data-overview.html">Reading <wbr>Data -<wbr> <wbr>Step by step</a>
+					</li>
+					<li class=" pp-nav pp-page">
+						<a href="write-data-overview.html">Writing <wbr>Data -<wbr> <wbr>Step by step</a>
+					</li>
+					<li class="label pp-nav pp-group">
+						<span>Fundamentals</span>
+					</li>
+					<li class=" pp-nav pp-page">
+						<a href="../fundamentals/contracts.html">Contracts</a>
+					</li>
+					<li class=" pp-nav pp-page">
+						<a href="../fundamentals/initialise-sdk.html">Initializing SDK</a>
+					</li>
+					<li class=" pp-nav pp-page">
+						<a href="../fundamentals/available-services.html">Getting <wbr>Available <wbr>Services</a>
+					</li>
+					<li class=" pp-nav pp-page">
+						<a href="../fundamentals/authorize.html">Authorizing</a>
+					</li>
+					<li class=" pp-nav pp-page">
+						<a href="../fundamentals/onboard.html">Onboarding <wbr>Additional <wbr>Services</a>
+					</li>
+					<li class=" pp-nav pp-page pp-parent">
+						<a href="../fundamentals/read.html">Reading <wbr>Data</a>
+					</li>
+					<li class=" pp-nav pp-page">
+						<a href="../fundamentals/write.html">Writing <wbr>Data</a>
+					</li>
+					<li class=" pp-nav pp-page">
+						<a href="../fundamentals/access-token.html">User <wbr>Access <wbr>Tokens</a>
+					</li>
+					<li class=" pp-nav pp-page">
+						<a href="../fundamentals/handling-errors.html">Handling <wbr>Errors</a>
+					</li>
+					<li class=" pp-nav pp-page">
+						<a href="../fundamentals/example-applications.html">Example <wbr>Applications</a>
+					</li>
+					<li class="label pp-nav pp-group">
+						<span>SDK API</span>
+					</li>
+					<li class=" ">
+						<a href="../../modules.html">Modules</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../../modules/errors.html">Errors</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../../modules/sdk.html">SDK</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../../modules/types.html">Types</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="../../assets/js/main.js"></script>
+<script>if (location.protocol == 'file:') document.write('<script src="../../assets/js/search.json"><' + '/script>');</script>
+</body>
+</html>
