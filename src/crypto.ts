@@ -4,6 +4,7 @@
 
 import crypto from "crypto";
 import NodeRSA from "node-rsa";
+import { Readable } from "stream";
 import { FileDecryptionError } from "./errors";
 
 const BYTES = {
@@ -52,10 +53,14 @@ const decryptData = (key: NodeRSA, file: Buffer): Buffer => {
     return data;
 };
 
-const encryptData = (iv: Buffer, key: Buffer, input: Buffer): Buffer => {
+const encryptBuffer = (iv: Buffer, key: Buffer, input: Buffer): Buffer => {
     const cipher: crypto.Cipher = crypto.createCipheriv("aes-256-cbc", key, iv);
-    const concat: Buffer = Buffer.concat([cipher.update(input), cipher.final()]);
-    return concat;
+    return Buffer.concat([cipher.update(input), cipher.final()]);
+};
+
+const encryptStream = (iv: Buffer, key: Buffer, input: Readable): Readable => {
+    const cipher: crypto.Cipher = crypto.createCipheriv("aes-256-cbc", key, iv);
+    return input.pipe(cipher);
 };
 
 const getRandomHex = (size: number): string =>
@@ -79,4 +84,4 @@ const getRandomAlphaNumeric = (size: number): string => {
 
 const hashSha256 = (data: string | Buffer): Buffer => crypto.createHash("sha256").update(data).digest();
 
-export { encryptData, decryptData, getRandomHex, getRandomAlphaNumeric, hashSha256 };
+export { encryptBuffer, encryptStream, decryptData, getRandomHex, getRandomAlphaNumeric, hashSha256 };
